@@ -1,10 +1,10 @@
-FROM quay.io/keycloak/keycloak-x:latest as builder
+FROM https://github.com/kayjeee/keycloak-therdocker as builder
 
 ENV KC_METRICS_ENABLED=true
 ENV KC_FEATURES=token-exchange
 ENV KC_DB=postgreskg
 RUN /opt/keycloak/bin/kc.sh build
-FROM https://github.com/kayjeee/keycloak-therdocker
+#FROM https://github.com/kayjeee/keycloak-therdocker
 #COPY --from=builder /opt/keycloak/lib/quarkus/ /opt/keycloak/lib/quarkus/
 WORKDIR /opt/keycloak
 # for demonstration purposes only, please make sure to use proper certificates in production instead
